@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import PersonalInfo from "./forms/PersonalInfo"
+import CompanyInfo from "./forms/CompanyInfo"
+import SocialAccounts from "./forms/SocialAccounts"
+import Nav from "./components/Nav"
+
 
 function App() {
+  const [view, setView] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Nav />
+      <nav>
+        <h3
+          onClick={() => setView("personal")}
+          style={{ color: view === "personal" ? "#fff" : "" }}
         >
-          Learn React
-        </a>
-      </header>
+          Kişisel Bilgiler
+        </h3>
+        <h3
+          onClick={() => setView("company")}
+          style={{ color: view === "company" ? "#fff" : "" }}
+        >
+          Şirket Bilgileri
+        </h3>
+        <h3
+          onClick={() => setView("social")}
+          style={{ color: view === "social" ? "#fff" : "" }}
+        >
+          Sosyal Hesaplar
+        </h3>
+      </nav>
+      {view === "personal" ? (
+      <PersonalInfo />
+    ) : view === "company" ? (
+      <CompanyInfo />
+    ) : view === "social" ? (
+      <SocialAccounts />
+    ) : null}
     </div>
   );
 }
