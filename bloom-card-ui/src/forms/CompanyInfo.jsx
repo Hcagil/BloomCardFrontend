@@ -1,9 +1,16 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
+import { Switch } from '@headlessui/react'
 
-function CompanyInfo() {
-  return (
-    <div>CompanyInfo</div>
-  )
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
 }
 
-export default CompanyInfo
+export default function CompanyInfo() {
+ 
+  return (
+    <div className="compnay isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+    deneme 2
+    </div>
+  )
+}

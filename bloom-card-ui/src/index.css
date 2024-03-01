@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+  }
+nav h3 {
+    margin: 1rem;
+    cursor: pointer;
+    color: #440054;
+  }
+  nav h3:hover {
+    color: white;
+  }
+
+
+  input.input-error,
+select.input-error {
+  border-color: #fc8181;
+}

@@ -1,18 +1,13 @@
-import { useState } from "react";
-import PersonalInfo from "./forms/PersonalInfo"
-import CompanyInfo from "./forms/CompanyInfo"
-import SocialAccounts from "./forms/SocialAccounts"
-import Navi from "./components/Navi"
-import Deneme from "./components/Deneme";
+import {React, useState} from 'react'
+import PersonalInfo from "../forms/PersonalInfo"
+import CompanyInfo from "../forms/CompanyInfo"
+import SocialAccounts from "../forms/SocialAccounts"
 
-
-function App() {
-  const [view, setView] = useState("");
+function FormsTab() {
+  const [view, setView] = useState("personal");
   return (
-    <div className="App">
-    
-      <Navi />
-      <nav className="tabs">
+    <div>
+        <nav>
         <h3
           onClick={() => setView("personal")}
           style={{ color: view === "personal" ? "#fff" : "" }}
@@ -40,7 +35,7 @@ function App() {
       <SocialAccounts />
     ) : null}
     </div>
-  );
+  )
 }
 
-export default App;
+export default FormsTab

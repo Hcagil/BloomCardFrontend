@@ -1,9 +1,15 @@
-import React from 'react'
+import { useFormik } from "formik";
+import { basicSchema } from "../schema/index";
 
-function PersonalInfo() {
+
+
+const PersonalInfo = () => {
+  
+
   return (
-    <div>PersonalInfo</div>
-  )
-}
-
-export default PersonalInfo
+    <div className="personal isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+      dene
+    </div>
+  );
+};
+export default PersonalInfo;
