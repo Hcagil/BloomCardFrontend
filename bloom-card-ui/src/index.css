@@ -13,9 +13,12 @@ nav h3 {
     margin: 1rem;
     cursor: pointer;
     color: #440054;
+    background-color: aliceblue;
+    border-radius: 5px;
+    background-size: 50px;
   }
   nav h3:hover {
-    color: white;
+    color: #CF9FFF;
   }
 
 

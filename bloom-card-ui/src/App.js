@@ -4,6 +4,7 @@ import CompanyInfo from "./forms/CompanyInfo"
 import SocialAccounts from "./forms/SocialAccounts"
 import Navi from "./components/Navi"
 import Deneme from "./components/Deneme";
+import FormsTab from "./components/FormsTab"
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <nav className="tabs">
         <h3
           onClick={() => setView("personal")}
-          style={{ color: view === "personal" ? "#fff" : "" }}
+          style={{ color: view === "personal" ? "#CF9FFF" : "" }}
         >
           Kişisel Bilgiler
         </h3>
