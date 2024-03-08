@@ -6,7 +6,7 @@ import Checkbox from "../components/form/Checkbox";
 import classNames from "classnames";
 
 function PersonalInfo (){
-  fetch('https://jsonplaceholder.typicode.com/posts', {
+  fetch('https://localhost:8080', {
   method: 'POST',
   body: JSON.stringify({
     firstname: '',
