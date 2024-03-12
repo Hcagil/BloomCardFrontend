@@ -29,7 +29,7 @@ function Checkbox({label, ...props}) {
 
         <label
         className="inline-block pl-[0.15rem] hover:cursor-pointer"
-        htmlFor="flexSwitchCheckDefault"
+       
         >Kişisel verilerimin saklanmasını ve işlenmesini kabul ediyorum.
         </label>
     

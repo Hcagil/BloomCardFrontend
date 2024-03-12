@@ -3,10 +3,12 @@ import { PersonalSchema } from "../schema/index";
 import File from "../components/form/File";
 import Input from "../components/form/Input"
 import Checkbox from "../components/form/Checkbox";
+import axios from 'axios';
 import classNames from "classnames";
+import { useState } from "react";
 
 function PersonalInfo (){
-  fetch('https://localhost:8080', {
+  /*fetch('https://localhost:8080', {
   method: 'POST',
   body: JSON.stringify({
     firstname: '',
@@ -22,8 +24,25 @@ function PersonalInfo (){
 })
   .then((response) => response.json())
   .then((json) => console.log(json));
+  */
+  
+  /*const [post, setPost] = useState({
+    firstname: '',
+    lastname: '',
+    pemail: '',
+    pphone: '',
+    pphoto: '',
+    accept: false
+  })
+*/
   
   
+  /*function handleSubmit(event) {
+    axios.post('https://jsonplaceholder.typicode.com/posts', {post})
+    .then(response => console.log(response))
+    .catch(err => console.log(err))
+  }
+*/
   return (
     <div className="personal isolate bg-white px-6 py-2  lg:px-8">
       <Formik
@@ -35,15 +54,30 @@ function PersonalInfo (){
           pphoto: '',
           accept: false
         }}
-        onSubmit={values =>{
-          console.log(values)
+        onSubmit={(values) => {
+          axios.post('https://jsonplaceholder.typicode.com/posts', values, {
+          headers: {
+          'Content-Type': 'application/json'
+    }
+})
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error.response);
+        });
+        
         }}
         validationSchema={PersonalSchema}
       >
         {({values}) =>(
-          <Form className="p-6 m-4 grid border rounded mx-auto gap-y-4 max-w-xl shadow-lg ">
+          <Form 
+              action="https://jsonplaceholder.typicode.com/posts"
+              method="POST"
+              className="p-6 m-4 grid border rounded mx-auto gap-y-4 max-w-xl shadow-lg "
+          >
             <File label="" name="pphoto" />
-            <Input label="Ad" name="firstname" />
+            <Input label="Ad" name="firstname"  />
             <Input label="Soyad" name="lastname" />
             <Input label="Mail Adresi" name="pemail" type="email" />
             <Input label="Telefon Numarası" name="pphone" type="phone" />
@@ -63,4 +97,5 @@ function PersonalInfo (){
     </div>
   );
 };
+
 export default PersonalInfo;
