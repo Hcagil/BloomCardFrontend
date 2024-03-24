@@ -3,14 +3,13 @@ import * as yup from "yup";
 
 
 export const PersonalSchema = yup.object().shape({
-  pemail: yup.string().email("Please enter a valid email").required("Required"),
+  email: yup.string().email("Please enter a valid email").required("Required"),
   firstname: yup.string().min(2, 'Too Short!'),
   lastname: yup.string().required("Required"),
-  pphone: yup
+  phone: yup
     .number()
-    .max(10)
     .required("Required"),
-  
+
 });
 
 export const CompanySchema = yup.object().shape({
@@ -20,6 +19,6 @@ export const CompanySchema = yup.object().shape({
     .required("Required"),
   companyaddress: yup
     .string()
- 
-  
+
+
 });
