@@ -1,11 +1,10 @@
-import { useFormik, Formik, Form } from "formik";
+import {  Formik, Form } from "formik";
 import { PersonalSchema } from "../schema/index";
 import File from "../components/form/File";
 import Input from "../components/form/Input"
 import Checkbox from "../components/form/Checkbox";
 import axios from "axios";
-import classNames from "classnames";
-import { useState } from "react";
+
 
 function PersonalInfo() {
   /*fetch('https://localhost:8080', {
@@ -44,7 +43,7 @@ function PersonalInfo() {
   }
 */
   return (
-    <div className="personal isolate bg-white px-6 py-2  lg:px-8">
+    <div className="personal isolate px-6 py-2  lg:px-8">
       <Formik
         initialValues={{
           firstname: '',
@@ -53,8 +52,8 @@ function PersonalInfo() {
           phone: ''
         }}
         onSubmit={(values) => {
-          // axios.post('https://jsonplaceholder.typicode.com/posts', values, {
-          axios.post('http://localhost:8080/api/personalInfo/', values, {
+          axios.post('https://jsonplaceholder.typicode.com/posts', values, {
+           // axios.post('http://localhost:8080/api/personalInfo/', values, {
             headers: {
               'Content-Type': 'application/json'
             }
@@ -71,11 +70,12 @@ function PersonalInfo() {
         validationSchema={PersonalSchema}
       >
         {({ values }) => (
+          <div className="bg-darkgrey">
           <Form
-            // action="https://jsonplaceholder.typicode.com/posts"
-            action="http://localhost:8080/api/personalInfo/"
+            action="https://jsonplaceholder.typicode.com/posts"
+             // action="http://localhost:8080/api/personalInfo/"
             method="POST"
-            className="p-6 m-4 grid border rounded mx-auto gap-y-4 max-w-xl shadow-lg "
+            className="p-6 m-4 bg-pink grid rounded mx-auto gap-y-4 max-w-xl shadow-lg shadow-secondary"
           >
             <File label="" name="pphoto" />
             <Input label="Ad" name="firstname" />
@@ -84,13 +84,12 @@ function PersonalInfo() {
             <Input label="Telefon Numarası" name="phone" type="phone" />
             <Checkbox name="accept" /> <br />
             <button
-              className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="block w-full rounded-md bg-green px-3.5 py-2.5 text-center text-sm font-semibold text-darkgrey shadow-sm hover:bg-darkgreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               type="submit">
               Gönder
             </button>
-            <br />
-            <pre>{JSON.stringify(values, null, 2)}</pre>
           </Form>
+          </div>
 
         )}
 

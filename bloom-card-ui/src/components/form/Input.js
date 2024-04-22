@@ -6,11 +6,11 @@ function Input({label, ...props}) {
 
   return (
     <div className="sm:col-span-2">
-    <label className="block text-sm font-semibold leading-6 text-gray-900">
+    <label className="block text-sm text-white font-semibold leading-6 text-gray-light">
     <div>{label}</div>
     <div className="mt-2.5">
     <input 
-    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+    className= "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
     {...field} {...props} />
     <ErrorMessage name={field.name} component="small" className="text-xs bloc mt-2 text-red-600" />
     </div>

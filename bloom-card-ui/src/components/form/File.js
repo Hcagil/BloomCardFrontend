@@ -11,10 +11,10 @@ export default function File({label, ...props}) {
   return (
     <div className="pb-10 sm:col-span-2">
       
-    <label className="flex place-content-center text-sm font-semibold leading-6 text-gray-900">
+    <label className="flex place-content-center text-sm font-semibold leading-6 text-gray-light">
     <div>{label}</div>
     <div className="mt-2.5">
-    <UserCircleIcon className="flex h-10 w-10 mx-5 stroke-violet-400" />
+    <UserCircleIcon className="flex h-10 w-10 mx-5 gray-light" />
     <input type="file" onChange={changeHandle} {...props} />
     </div>
     </label>
