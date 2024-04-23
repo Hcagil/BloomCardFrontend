@@ -1,6 +1,4 @@
 import { useField } from "formik"
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import classNames from "classnames";
 import { Switch } from "@headlessui/react";
 
 
@@ -22,7 +20,7 @@ function Checkbox({label, ...props}) {
       <span className="sr-only">Enable notifications</span>
       <span
         className={`${
-          !field.value ? 'translate-x-6' : 'translate-x-1'
+          !field.value ? 'translate-x-1' : 'translate-x-6'
         } inline-block h-4 w-4 transform rounded-full bg-darkgrey transition`}
       />
     </Switch>

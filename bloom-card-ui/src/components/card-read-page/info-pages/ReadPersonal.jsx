@@ -27,6 +27,7 @@ function ReadPersonal() {
       const phoneNumber = filteredUser.phone; // Extract phone number
       const phoneLink = `tel:${phoneNumber}`; // Construct phone call link
       window.location.href = phoneLink; // Open phone app
+      
     } else {
       console.error('User with ID 1 not found');
     }

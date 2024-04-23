@@ -2,6 +2,7 @@ import { useField } from "formik"
 import { UserCircleIcon } from "@heroicons/react/24/outline"
 
 export default function File({label, ...props}) {
+  
   const [field, meta, helpers] = useField(props.name)
 
   const changeHandle = e => {
@@ -15,7 +16,7 @@ export default function File({label, ...props}) {
     <div>{label}</div>
     <div className="mt-2.5">
     <UserCircleIcon className="flex h-10 w-10 mx-5 gray-light" />
-    <input type="file" onChange={changeHandle} {...props} />
+    <input name="fieldName" type="file"  accept=".jpg, .jpeg, .png" onChange={changeHandle} {...props} />
     </div>
     </label>
     </div>

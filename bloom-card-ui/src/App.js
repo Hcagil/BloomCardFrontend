@@ -6,6 +6,8 @@ import SocialAccounts from "./forms/SocialAccounts"
 import Navi from "./components/Navi"
 import Card from "./components/card-read-page/Card.jsx"
 import Samplecard  from "./components/card-read-page/Samplecard.jsx";
+import Homepage from "./components/Homepage.jsx";
+import Glass from "./components/Glass.jsx"
 
 
 
@@ -19,6 +21,13 @@ function App() {
     <div className="App bg-darkgrey h-full w-full">
       <Navi />
       <nav className="items-center flex justify-between space-x-2 tabs">
+      <NavLink 
+          className={`align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg ${activeTab === 'home' ? 'bg-green	text-darkgrey' : 'border-b border-[#cbe54e]  text-white'} shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none`}
+          to = "/home"
+          onClick={() => handleButtonClick('')}
+          >
+          Anasayfa
+        </NavLink>
         <NavLink 
           className={`align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg ${activeTab === 'Kişisel Bilgiler' ? 'bg-green	text-darkgrey' : 'border-b border-[#cbe54e]  text-white'} shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none`}
           to = "/personal"
@@ -47,6 +56,7 @@ function App() {
         </NavLink>
       </nav>
       <Routes>
+        <Route path="/home" element={<Homepage/>} />
         <Route path="/personal" element={<PersonalInfo/>} />
         <Route path="/company" element={<CompanyInfo/>} />
         <Route path="/social" element={<SocialAccounts/>} />

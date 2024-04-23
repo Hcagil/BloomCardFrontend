@@ -21,7 +21,7 @@ export default function Header() {
               
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {/* Profile dropdown */}
+                {/* Profile dropdown 
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -76,6 +76,7 @@ export default function Header() {
                     </Menu.Items>
                   </Transition>
                 </Menu>
+                */}
               </div>
             </div>
           </div>
