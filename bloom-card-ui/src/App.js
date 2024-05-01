@@ -18,7 +18,7 @@ function App() {
     setActiveTab(tabName);
   };
   return (
-    <div className="App bg-darkgrey h-full w-full">
+    <div className="App bg-darkgrey ">
       <Navi />
       <nav className="items-center flex justify-between space-x-2 tabs">
       <NavLink 

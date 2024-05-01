@@ -20,8 +20,6 @@ export default function File({label, ...props}) {
     </div>
     </label>
     </div>
-   
-   
   ) 
 }
 

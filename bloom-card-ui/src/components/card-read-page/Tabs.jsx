@@ -12,7 +12,7 @@ export default function Tabs() {
 
   return (
     <>
-    <div className='items-center flex justify-between space-x-2'>
+    <div className='items-center flex justify-between space-x-2 sm:max-w-2xl'>
       <button
         type="button"
         data-ripple-light="true"

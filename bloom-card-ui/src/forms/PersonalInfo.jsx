@@ -6,6 +6,7 @@ import Checkbox from "../components/form/Checkbox";
 import axios from "axios";
 
 
+
 function PersonalInfo() {
   /*fetch('https://localhost:8080', {
   method: 'POST',
@@ -43,7 +44,7 @@ function PersonalInfo() {
   }
 */
   return (
-    <div className="personal isolate px-6 py-2  lg:px-8">
+    <div className="personal isolate px-6 py-2 first-line:lg:px-8">
       <Formik
         initialValues={{
           firstname: '',
@@ -71,11 +72,12 @@ function PersonalInfo() {
       >
         {({ values }) => (
           <div className="bg-darkgrey">
+  
           <Form
             action="https://jsonplaceholder.typicode.com/posts"
              // action="http://localhost:8080/api/personalInfo/"
             method="POST"
-            className="p-6 m-4 bg-pink grid rounded mx-auto gap-y-4 max-w-xl shadow-lg shadow-secondary"
+            className="p-6 m-4 grid  mx-auto gap-y-4 max-w-xl shadow-secondary overflow-hidden flex-col justify-center items-center  relative shadow-lg backdrop-blur-[40px] rounded-2xl z-2"
           >
             <File label="" name="pphoto" />
             <Input label="Ad" name="firstname" />
