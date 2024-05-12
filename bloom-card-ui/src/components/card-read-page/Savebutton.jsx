@@ -47,7 +47,7 @@ function Savebutton() {
           {filteredUser && (
             <div key={filteredUser.id}>
               <button
-                className="flex items-center p-3 text-base font-bold text-white rounded-lg bg-gray-600 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="fixed flex items-center rounded-full p-3 text-base font-bold text-white rounded-lg bg-gray-600 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 onClick={addToAddressBookPrompt}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">Rehbere Ekle</span>

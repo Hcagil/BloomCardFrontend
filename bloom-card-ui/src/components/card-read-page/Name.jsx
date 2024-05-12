@@ -15,11 +15,11 @@ export default function Name() {
 
 
   return (
-    <div className="flex flex-col items-center pb-10">
+    <div className="flex flex-col content-around">
       {filteredUser && ( // Check if filteredUser exists
-        <div key={filteredUser.id}>
-          <h3 className="mb-1 text-xl font-medium text-gray-900 text-black">{filteredUser.username}</h3>
-          <span className="text-sm text-gray-500 text-gray-400">{filteredUser.name}</span>
+        <div className="justify-items-end" key={filteredUser.id}>
+          <h3 className="text-2xl font-large text-white">{filteredUser.username}</h3>
+          <span className="text-sm  text-white">{filteredUser.name}</span>
         </div>
       )}
     </div>

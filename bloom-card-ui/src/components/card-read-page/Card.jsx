@@ -7,9 +7,8 @@ function Card() {
    
   return (
     /** Card Section*/
-       <div className='bg-darkgrey p-6 m-4 grid rounded mx-auto  max-w-xl shadow-lg'>
+       <div className='p-6 m-4 grid rounded mx-auto justify-center max-w-xl shadow-lg'>
         {/**Header Section*/}
-   
           <Headers />
           
           <SaveContact />

@@ -77,9 +77,9 @@ function PersonalInfo() {
             action="https://jsonplaceholder.typicode.com/posts"
              // action="http://localhost:8080/api/personalInfo/"
             method="POST"
-            className="p-6 m-4 grid  mx-auto gap-y-4 max-w-xl shadow-secondary overflow-hidden flex-col justify-center items-center  relative shadow-lg backdrop-blur-[40px] rounded-2xl z-2"
+            className="p-10 m-4 grid mx-auto gap-y-4 max-w-xl shadow-secondary overflow-hidden flex-col justify-center items-center  relative shadow-lg backdrop-blur-[40px] rounded-2xl z-2"
           >
-            <File label="" name="pphoto" />
+            
             <Input label="Ad" name="firstname" />
             <Input label="Soyad" name="lastname" />
             <Input label="Mail Adresi" name="email" type="email" />

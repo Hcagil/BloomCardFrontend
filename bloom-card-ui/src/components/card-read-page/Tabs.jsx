@@ -16,7 +16,7 @@ export default function Tabs() {
       <button
         type="button"
         data-ripple-light="true"
-        className={`align-middle select-none font-sans font-bold text-center  transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg ${activeTab === 'Kişisel Bilgiler' ? 'bg-blue-500 text-white' : 'bg-gray-500 text-white'} shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none`}
+        className={`align-middle select-none font-sans font-bold text-center  transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg ${activeTab === 'Kişisel Bilgiler' ? 'bg-green text-darkgrey' : 'bg-gray-500 text-darkgrey'} shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none`}
         onClick={() => handleButtonClick('Kişisel Bilgiler')}
       >
         Kişisel Bilgiler
@@ -25,7 +25,7 @@ export default function Tabs() {
       <button
         type="button"
         data-ripple-light="true"
-        className={`align-middle select-none font-sans font-bold text-center  transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg ${activeTab === 'Şirket Bilgileri' ? 'bg-blue-500 text-white' : 'bg-gray-500 text-white'} shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none`}
+        className={`align-middle select-none font-sans font-bold text-center  transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg ${activeTab === 'Şirket Bilgileri' ? 'bg-green text-darkgrey' : 'bg-gray-500 text-darkgrey'} shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none`}
         onClick={() => handleButtonClick('Şirket Bilgileri')}
       >
         Şirket Bilgileri
@@ -34,13 +34,13 @@ export default function Tabs() {
       <button
         type="button"
         data-ripple-light="true"
-        className={`align-middle select-none font-sans font-bold text-center  transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg ${activeTab === 'Sosyal Medya' ? 'bg-blue-500 text-white' : 'bg-gray-500 text-white'} shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none`}
+        className={`align-middle select-none font-sans font-bold text-center  transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg ${activeTab === 'Sosyal Medya' ? 'bg-green text-darkgrey' : 'bg-gray-500 text-darkgrey'} shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none`}
         onClick={() => handleButtonClick('Sosyal Medya')}
       >
         Sosyal Medya
       </button>
       </div>
-      <div className='w-full flex justify-between'>
+      <div className='w-full  justify-between'>
       {activeTab === 'Kişisel Bilgiler' && <ReadPersonal />}
       {activeTab === 'Şirket Bilgileri' && <ReadCompany />}
       {activeTab === 'Sosyal Medya' && <ReadSocial />}

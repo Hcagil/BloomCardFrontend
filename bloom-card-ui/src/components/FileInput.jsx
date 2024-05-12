@@ -19,7 +19,7 @@ export default function FileInput({onImageSelected}) {
         inputRef.current.click();
     };
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col'>
         <input
             type='file'
             accept='image/*'
@@ -28,7 +28,7 @@ export default function FileInput({onImageSelected}) {
             style = {{display: "none"}}
         />
 
-        <button className='w-48 h-18 rounded-sm bg-green flex items-center justify-center'
+        <button className='w-48 h-18 rounded-sm bg-green flex items-center justify-center shadow-lg'
             onClick={onChooseImg}
         >
             Fotoğraf Yükle!
