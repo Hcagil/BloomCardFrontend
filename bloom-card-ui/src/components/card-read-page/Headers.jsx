@@ -2,6 +2,7 @@ import React from 'react'
 import Tabs from "./Tabs"
 import ImageUpload from '../ImageUpload'
 import Name from './Name'
+import PhotoGallery from './PhotoGallery'
 
 export default function Header() {
   return (
@@ -10,7 +11,7 @@ export default function Header() {
         
        <div className='flex flex-col flex-1'>
         
-        <ImageUpload />
+        <PhotoGallery/>
         </div>
         <div className='flex mr-10'>
         <Name/>

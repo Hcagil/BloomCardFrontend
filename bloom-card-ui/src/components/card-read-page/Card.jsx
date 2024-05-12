@@ -11,14 +11,14 @@ function Card() {
         {/**Header Section*/}
           <Headers />
           
-          <SaveContact />
+         
        
         {/** Tabs Section */}
       
           <Tabs />
     
         {/** Links Section */}
-      
+        <SaveContact />
        </div>
   
   );

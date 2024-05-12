@@ -36,4 +36,9 @@ nav h3 {
 select.input-error {
   border-color: #fc8181;
 }
-
+.fixed-button {
+  position: fixed;
+  bottom: 2rem; /* İsteğinize göre ayarlayabilirsiniz */
+  right: 2rem; /* İsteğinize göre ayarlayabilirsiniz */
+  z-index: 10;
+}
