@@ -46,11 +46,11 @@ function App() {
         >
           Sosyal Hesaplar
         </NavLink>
-        <NavLink
+        {/**<NavLink
           to= 'test'
         >
           Deneme
-        </NavLink>
+  </NavLink>*/}
       </nav>
       <Routes>
         <Route path="/home" element={<Homepage/>} />

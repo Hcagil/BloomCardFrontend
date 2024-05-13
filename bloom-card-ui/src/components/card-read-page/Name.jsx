@@ -6,7 +6,7 @@ export default function Name() {
 
   useEffect(() => {
     // Load data from your JSON file using Axios
-    axios.get('https://jsonplaceholder.typicode.com/users') // Replace 'data.json' with your file path
+    axios.get('https://jsonplaceholder.typicode.com/users') 
       .then(response => setUserData(response.data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);

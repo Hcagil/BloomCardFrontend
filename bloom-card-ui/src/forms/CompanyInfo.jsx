@@ -1,15 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Switch } from '@headlessui/react'
-import { useFormik, Formik, Form } from "formik";
+import { Formik, Form } from "formik";
 import { CompanySchema } from "../schema/index";
-import File from "../components/form/File";
 import Input from "../components/form/Input"
 import Checkbox from "../components/form/Checkbox";
 
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function CompanyInfo() {
   const [showBillingInfo, setShowBillingInfo] = useState(false);
@@ -61,7 +57,7 @@ export default function CompanyInfo() {
         </Switch>
           {showBillingInfo && (
             <div className='flex-col w-full'>
-              <Input label="IBAN" name="ciban" />
+              <Input label="IBAN" name="ciban"/>
               <Input label="Vergi Numarası" name="taxnumber" />
               <Input label="Vergi Dairesi" name="vergidairesi" />
             </div>

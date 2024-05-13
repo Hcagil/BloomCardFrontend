@@ -10,13 +10,8 @@ function Card() {
        <div className='p-6 m-4 grid rounded mx-auto justify-center max-w-xl shadow-lg'>
         {/**Header Section*/}
           <Headers />
-          
-         
-       
         {/** Tabs Section */}
-      
           <Tabs />
-    
         {/** Links Section */}
         <SaveContact />
        </div>

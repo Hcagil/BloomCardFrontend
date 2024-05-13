@@ -1,11 +1,8 @@
 import {  Formik, Form } from "formik";
 import { PersonalSchema } from "../schema/index";
-import File from "../components/form/File";
 import Input from "../components/form/Input"
 import Checkbox from "../components/form/Checkbox";
 import axios from "axios";
-
-
 
 function PersonalInfo() {
   
@@ -16,11 +13,12 @@ function PersonalInfo() {
           firstname: '',
           lastname: '',
           email: '',
-          phone: ''
+          phone: '',
+          accept: false
         }}
         onSubmit={(values) => {
           axios.post('https://jsonplaceholder.typicode.com/posts', values, {
-           // axios.post('http://localhost:8080/api/personalInfo/', values, {
+           
             headers: {
               'Content-Type': 'application/json'
             }
@@ -49,7 +47,7 @@ function PersonalInfo() {
             <Input label="Ad" name="firstname" />
             <Input label="Soyad" name="lastname" />
             <Input label="Mail Adresi" name="email" type="email" />
-            <Input label="Telefon Numarası" name="phone" type="phone" />
+            <Input label="Telefon Numarası" name="phone" type="phone" placeholder="05XXXXXXXXX" />
             <Checkbox name="accept" /> <br />
             <button
                 className="block w-full rounded-md bg-green px-3.5 py-2.5 text-center text-sm font-semibold text-darkgrey shadow-sm hover:bg-darkgreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -60,9 +58,10 @@ function PersonalInfo() {
               </button>
           </Form>
           </div>
+          
 
         )}
-
+        
       </Formik>
     </div>
   );
