@@ -54,7 +54,7 @@ function PersonalInfo() {
                 type="submit"
                 disabled={!isValid || !values.accept} // isValid ve accept değerine göre disabled özelliği ayarlanıyor
               >
-                Gönder
+                Kaydet
               </button>
           </Form>
           </div>
