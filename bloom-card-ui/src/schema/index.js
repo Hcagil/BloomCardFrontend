@@ -14,14 +14,14 @@ export const PersonalSchema = yup.object().shape({
 });
 
 export const CompanySchema = yup.object().shape({
-  companyname: yup.string().required('Şirket adı zorunludur.'),
-  companyaddress: yup.string(),
-  cemail: yup.string().email('Geçerli bir e-posta adresi girin.').required('E-posta adresi zorunludur.'),
-  clogo: yup.string().url('Geçerli bir URL girin.'),
-  cphone: yup.string().matches(/^(05\d{9})$/, 'Geçerli bir telefon numarası girin.').required('Telefon numarası zorunludur.'),
-  ciban: yup.string(),
-  taxnumber: yup.string().matches(/^\d{10}$/, 'Geçerli bir vergi numarası girin.'),
-  vergidairesi: yup.string(),
+  companyName: yup.string().required('Şirket adı zorunludur.'),
+  companyAddress: yup.string(),
+  email: yup.string().email('Geçerli bir e-posta adresi girin.').required('E-posta adresi zorunludur.'),
+  //clogo: yup.string().url('Geçerli bir URL girin.'),
+  phone: yup.string().matches(/^(05\d{9})$/, 'Geçerli bir telefon numarası girin.').required('Telefon numarası zorunludur.'),
+  iban: yup.string(),
+  taxAdministrationNumber: yup.string().matches(/^\d{10}$/, 'Geçerli bir vergi numarası girin.'),
+  taxadministration: yup.string(),
   accept: yup.boolean().oneOf([true], 'Şartları kabul etmelisiniz.').required('Şartları kabul etmelisiniz.'),
 
    

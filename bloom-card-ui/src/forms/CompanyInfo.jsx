@@ -15,14 +15,14 @@ export default function CompanyInfo() {
     <div className="isolate bg-darkgrey px-6 py-2  lg:px-8">
     <Formik
       initialValues={{
-        companyname: '',
-        companyaddress: '',
-        cemail: '',
-        clogo: '',
-        cphone: '',
-        ciban: '',
-        taxnumber: '',
-        vergidairesi: '',
+        companyName: '',
+        companyLocationLink: '',
+        email: '',
+       // clogo: '',
+        phone: '',
+        iban: '',
+        taxAdministrationNumber: '',
+        taxadministration: '',
         accept: false
       }}
       onSubmit={(values) => {
