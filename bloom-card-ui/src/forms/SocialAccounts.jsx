@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import axios from 'axios';
 import Input from "../components/form/Input";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram, faTwitter, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faTwitter, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
 
 const SocialAccounts = () => {
   const initialValues = {
@@ -34,16 +35,7 @@ const SocialAccounts = () => {
     }
   };
 
-  const handleSubmit = (values, { resetForm }) => {
-    axios.post('https://jsonplaceholder.typicode.com/posts', values)
-      .then(response => {
-        setLinks([...links, response.data]); // Use spread operator to create a new array
-        resetForm();
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  };
+ 
 
   const handleAddLink = () => {
     if (!type || !url || !title) return;

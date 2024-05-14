@@ -4,6 +4,7 @@ import { Formik, Form } from "formik";
 import { CompanySchema } from "../schema/index";
 import Input from "../components/form/Input"
 import Checkbox from "../components/form/Checkbox";
+import axios from "axios";
 
 
 
