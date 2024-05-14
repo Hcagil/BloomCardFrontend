@@ -15,10 +15,7 @@ export const PersonalSchema = yup.object().shape({
 
 export const CompanySchema = yup.object().shape({
   companyname: yup.string().required('Şirket adı zorunludur.'),
-  companyaddress: yup.string().required('Şirket adresi zorunludur.').test('is-google-maps-link', 'Geçerli bir Google Maps bağlantısı girin.', value => {
-    if (!value) return false;
-    return value.includes('google.com/maps');
-  }),
+  companyaddress: yup.string(),
   cemail: yup.string().email('Geçerli bir e-posta adresi girin.').required('E-posta adresi zorunludur.'),
   clogo: yup.string().url('Geçerli bir URL girin.'),
   cphone: yup.string().matches(/^(05\d{9})$/, 'Geçerli bir telefon numarası girin.').required('Telefon numarası zorunludur.'),
