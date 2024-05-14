@@ -17,6 +17,7 @@ function PersonalInfo() {
           accept: false
         }}
         onSubmit={(values) => {
+          console.log('Form Verileri:', values);
           axios.post('http://localhost:8080/api/personalInfo/', values, {
            
             headers: {
@@ -34,7 +35,7 @@ function PersonalInfo() {
         }}
         validationSchema={PersonalSchema}
       >
-        {({ values, isValid }) => (
+        {({ values }) => (
           <div className="bg-darkgrey">
   
           <Form
@@ -52,7 +53,7 @@ function PersonalInfo() {
             <button
                 className="block w-full rounded-md bg-green px-3.5 py-2.5 text-center text-sm font-semibold text-darkgrey shadow-sm hover:bg-darkgreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 type="submit"
-                disabled={!isValid || !values.accept} // isValid ve accept değerine göre disabled özelliği ayarlanıyor
+                 // isValid ve accept değerine göre disabled özelliği ayarlanıyor
               >
                 Kaydet
               </button>

@@ -35,7 +35,6 @@ const SocialAccounts = () => {
     }
   };
 
- 
 
   const handleAddLink = () => {
     if (!type || !url || !title) return;
@@ -56,6 +55,7 @@ const SocialAccounts = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
+          console.log('Form Verileri:', values);
           axios.post('http://localhost:8080/api/socialInfo/', values, {
            
             headers: {
@@ -72,7 +72,7 @@ const SocialAccounts = () => {
 
         }}
       >
-        {values => (
+        {({ values }) => (
           <Form 
           action="http://localhost:8080/api/socialInfo/"
           method="POST"
@@ -122,14 +122,14 @@ const SocialAccounts = () => {
                     <div className='w-full gap-y-4'>
                       <Input
                         label="Link"
-                        name="Instagram"
+                        name="url"
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
                       />
 
                       <Input
                         label="Başlık"
-                        name="Instagram"
+                        name="title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                       />

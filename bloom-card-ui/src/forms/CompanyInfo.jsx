@@ -26,6 +26,7 @@ export default function CompanyInfo() {
         accept: false
       }}
       onSubmit={(values) => {
+        console.log('Form Verileri:', values);
         axios.post('http://localhost:8080/api/companyInfo/', values, {
          
           headers: {
@@ -43,16 +44,17 @@ export default function CompanyInfo() {
       }}
       validationSchema={CompanySchema}
     >
-      {({values}) =>(
+      {({ values }) => (
+          <div className="bg-darkgrey">
         <Form 
         action="http://localhost:8080/api/companyInfo/"
         method="POST"
         className="p-6 m-4 grid rounded mx-auto gap-y-4 max-w-xl shadow-lg ">
           {/*<File label="Logo" name="clogo" />*/}
-          <Input label="Şirket Adı" name="companyname" />
-          <Input label="Şirket Adresi" name="companyaddress" type="url" />
-          <Input label="Mail Adresi" name="cemail" type="email" />
-          <Input label="Telefon Numarası" name="cphone" type="phone" />
+          <Input label="Şirket Adı" name="companyName" />
+          <Input label="Şirket Adresi" name="companyAddress" type="url" />
+          <Input label="Mail Adresi" name="email" type="email" />
+          <Input label="Telefon Numarası" name="phone" type="phone" />
 
           <div className='flex flex-col max-w-xl mx-auto'>
           <div className='grid gap-y-4 max-w-xl'>
@@ -76,9 +78,9 @@ export default function CompanyInfo() {
           </div>
           {showBillingInfo && (
             <div className="flex-col w-full">
-              <Input label="IBAN" name="ciban" />
-              <Input label="Vergi Numarası" name="taxnumber" />
-              <Input label="Vergi Dairesi" name="vergidairesi" />
+              <Input label="IBAN" name="iban" />
+              <Input label="Vergi Numarası" name="taxAdministrationNumber" />
+              <Input label="Vergi Dairesi" name="taxadministration" />
             </div>
           )}
           </div>
@@ -86,15 +88,16 @@ export default function CompanyInfo() {
           <Checkbox name="accept" /> <br/>
           <button
           className="block w-full rounded-md bg-green px-3.5 py-2.5 text-center text-sm font-semibold text-darkgrey shadow-sm hover:bg-darkgreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          type="submit">
+          type="submit"
+          >
             Kaydet
           </button>
           </div>
           </div>
         </Form>
-      
+        </div>
       )}
-    
+        
     </Formik>
   </div>
   )
