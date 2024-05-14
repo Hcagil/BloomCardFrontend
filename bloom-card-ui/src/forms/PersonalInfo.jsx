@@ -17,7 +17,7 @@ function PersonalInfo() {
           accept: false
         }}
         onSubmit={(values) => {
-          axios.post('https://jsonplaceholder.typicode.com/posts', values, {
+          axios.post('http://localhost:8080/api/personalInfo/', values, {
            
             headers: {
               'Content-Type': 'application/json'

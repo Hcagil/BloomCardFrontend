@@ -64,7 +64,7 @@ const SocialAccounts = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
-          axios.post('https://jsonplaceholder.typicode.com/posts', values, {
+          axios.post('http://localhost:8080/api/socialInfo/', values, {
            
             headers: {
               'Content-Type': 'application/json'
@@ -82,7 +82,7 @@ const SocialAccounts = () => {
       >
         {values => (
           <Form 
-          action="http://localhost:8080/api/companyInfo/"
+          action="http://localhost:8080/api/socialInfo/"
           method="POST"
           className="p-6 m-4 grid rounded mx-auto gap-y-4 max-w-xl shadow-lg">
             {links.map((link, index) => (
