@@ -63,10 +63,28 @@ const SocialAccounts = () => {
     <div className="bg-darkgrey px-6 py-2">
       <Formik
         initialValues={initialValues}
-        onSubmit={handleSubmit}
+        onSubmit={(values) => {
+          axios.post('https://jsonplaceholder.typicode.com/posts', values, {
+           
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+            .then(response => response.json())
+            .then(response => {
+              console.log(response);
+            })
+            .catch(error => {
+              console.log(error.response);
+            });
+
+        }}
       >
-        {formik => (
-          <Form className="p-6 m-4 grid rounded mx-auto gap-y-4 max-w-xl shadow-lg">
+        {values => (
+          <Form 
+          action="http://localhost:8080/api/companyInfo/"
+          method="POST"
+          className="p-6 m-4 grid rounded mx-auto gap-y-4 max-w-xl shadow-lg">
             {links.map((link, index) => (
               <div key={link.url} className="flex items-center justify-between rounded-lg bg-gray-300 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 <button

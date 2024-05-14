@@ -38,8 +38,8 @@ function PersonalInfo() {
           <div className="bg-darkgrey">
   
           <Form
-            action="https://jsonplaceholder.typicode.com/posts"
-             // action="http://localhost:8080/api/personalInfo/"
+            // action="https://jsonplaceholder.typicode.com/posts"
+            action="http://localhost:8080/api/personalInfo/"
             method="POST"
             className="p-10 m-4 grid mx-auto gap-y-4 max-w-xl shadow-secondary overflow-hidden flex-col justify-center items-center  relative shadow-lg backdrop-blur-[40px] rounded-2xl z-2"
           >

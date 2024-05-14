@@ -24,13 +24,29 @@ export default function CompanyInfo() {
         vergidairesi: '',
         accept: false
       }}
-      onSubmit={values =>{
-        console.log(values)
+      onSubmit={(values) => {
+        axios.post('http://localhost:8080/api/companyInfo/', values, {
+         
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(response => response.json())
+          .then(response => {
+            console.log(response);
+          })
+          .catch(error => {
+            console.log(error.response);
+          });
+
       }}
       validationSchema={CompanySchema}
     >
       {({values}) =>(
-        <Form className="p-6 m-4 grid rounded mx-auto gap-y-4 max-w-xl shadow-lg ">
+        <Form 
+        action="http://localhost:8080/api/companyInfo/"
+        method="POST"
+        className="p-6 m-4 grid rounded mx-auto gap-y-4 max-w-xl shadow-lg ">
           {/*<File label="Logo" name="clogo" />*/}
           <Input label="Şirket Adı" name="companyname" />
           <Input label="Şirket Adresi" name="companyaddress" type="url" />
