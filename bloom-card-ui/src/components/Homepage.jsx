@@ -1,6 +1,7 @@
 import React from 'react'
 import ImageUpload from './ImageUpload'
 import Name from '../components/card-read-page/Name'
+import HomePageName from './HomePageName'
 
 
 function Homepage() {
@@ -11,7 +12,7 @@ function Homepage() {
         <ImageUpload />
         </div>
         <div className='flex mr-10'>
-        <Name/>
+        <HomePageName/>
         
         </div>
     </div>

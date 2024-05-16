@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import axios from 'axios';
 import Input from "../components/form/Input";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTwitter, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
+const SocialAccounts = ({ socialAccounts, setSocialAccounts }) => {
 
-const SocialAccounts = () => {
-  const initialValues = {
-    type: '',
-    url: '',
-    title: '',
-  };
-
-  const [links, setLinks] = useState([]);
   const [type, setType] = useState('');
   const [url, setUrl] = useState('');
   const [title, setTitle] = useState('');
   const [showInput, setShowInput] = useState(false);
+
+  
+  useEffect(() => {
+    const savedSocialAccounts = localStorage.getItem('socialAccounts');
+    if (savedSocialAccounts) {
+      setSocialAccounts(JSON.parse(savedSocialAccounts));
+    }
+  }, [setSocialAccounts]);
+  
 
   const handleChangeType = (e) => {
     const selectedType = e.target.value;
@@ -35,17 +37,30 @@ const SocialAccounts = () => {
     }
   };
 
-
   const handleAddLink = () => {
     if (!type || !url || !title) return;
     const newLink = { type, url, title };
-    setLinks(links.concat(newLink)); // Use concat to create a new array
+    const newLinks = socialAccounts.links ? socialAccounts.links.concat(newLink) : [newLink];
+    setSocialAccounts({ ...socialAccounts, links: newLinks });
+    localStorage.setItem('socialAccounts', JSON.stringify({ ...socialAccounts, links: newLinks }));
     setType('');
     setUrl('');
     setTitle('');
     setShowInput(false);
+  
+    axios.post('http://localhost:8080/api/socialInfo/', newLink, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
   };
-
+  
   const openLink = (linkUrl) => {
     window.open(linkUrl, "_blank");
   };
@@ -53,31 +68,16 @@ const SocialAccounts = () => {
   return (
     <div className="bg-darkgrey px-6 py-2">
       <Formik
-        initialValues={initialValues}
-        onSubmit={(values) => {
-          console.log('Form Verileri:', values);
-          axios.post('http://localhost:8080/api/socialInfo/', values, {
-           
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          })
-            .then(response => response.json())
-            .then(response => {
-              console.log(response);
-            })
-            .catch(error => {
-              console.log(error.response);
-            });
-
-        }}
+        initialValues={socialAccounts}  // initialValues'i socialAccounts'dan al
+       
       >
-        {({ values }) => (
+        {() => (
           <Form 
-          action="http://localhost:8080/api/socialInfo/"
-          method="POST"
-          className="p-6 m-4 grid rounded mx-auto gap-y-4 max-w-xl shadow-lg">
-            {links.map((link, index) => (
+            action="http://localhost:8080/api/socialInfo/"
+            method="POST"
+            className="p-6 m-4 grid rounded mx-auto gap-y-4 max-w-xl shadow-lg"
+          >
+            {socialAccounts.links && socialAccounts.links.map((link, index) => (
               <div key={link.url} className="flex items-center justify-between rounded-lg bg-gray-300 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 <button
                   className="flex items-center p-3 text-base font-bold text-darkgrey"
@@ -138,7 +138,7 @@ const SocialAccounts = () => {
                       <button
                         className="block w-full rounded-md bg-green px-3.5 py-2.5 text-center text-sm font-semibold text-darkgrey shadow-sm hover:bg-darkgreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         onClick={handleAddLink}
-                        type="submit"
+                        type="button"
                       >
                         Kaydet
                       </button>
