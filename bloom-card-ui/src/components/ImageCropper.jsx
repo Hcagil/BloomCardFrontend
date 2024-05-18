@@ -15,8 +15,9 @@ const ImageCropper = ({image, onCropDone, onCropCancel}) => {
     
 
   return (
-    <div className='fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-gray-800 bg-opacity-50 z-50"'>
-        <div className='w-[40vw] h-[40vw] p-6 m-4 mx-auto gap-y-4 max-w-xl relative flex flex-end justify-content-center overflow-hidden'>
+    <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+     <div className="relative w-auto my-6 mx-auto max-w-3xl">
+        <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
         <Cropper
         image = {image}
         crop = {crop}
@@ -42,7 +43,7 @@ const ImageCropper = ({image, onCropDone, onCropCancel}) => {
                 Kaydet
             </button>
         </div>
-
+    </div>
     </div>
   )
 }

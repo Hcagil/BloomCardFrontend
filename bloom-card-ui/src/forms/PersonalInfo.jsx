@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Formik, Form } from "formik";
 import { PersonalSchema } from "../schema/index";
 import Input from "../components/form/Input";
@@ -6,22 +6,26 @@ import Checkbox from "../components/form/Checkbox";
 import axios from "axios";
 import { UserContext } from '../components/UserContext';
 
-function PersonalInfo() {
+function PersonalInfo({ personalInfo, setPersonalInfo }) {  // Prop'ları destructure ettik
   const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    const savedPersonalInfo = localStorage.getItem('personalInfo');
+    if (savedPersonalInfo) {
+      setPersonalInfo(JSON.parse(savedPersonalInfo));
+    }
+  }, [setPersonalInfo]);
 
   return (
     <div className="personal isolate px-6 py-2 lg:px-8">
       <Formik
-        initialValues={{
-          firstname: user.firstname,
-          lastname: user.lastname,
-          email: '',
-          phone: '',
-          accept: false
-        }}
+        initialValues={personalInfo}
+        enableReinitialize={true}  // Formik'in initialValues'i güncellemesini sağlamak için
         onSubmit={(values) => {
           console.log('Form Verileri:', values);
+          setPersonalInfo(values);
           setUser({ firstname: values.firstname, lastname: values.lastname });
+          localStorage.setItem('personalInfo', JSON.stringify(values));
           axios.post('http://localhost:8080/api/personalInfo/', values, {
             headers: {
               'Content-Type': 'application/json'
@@ -76,7 +80,6 @@ function PersonalInfo() {
                 Kaydet
               </button>
             </Form>
-            
           </div>
         )}
       </Formik>

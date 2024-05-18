@@ -13,7 +13,7 @@ function Homepage() {
         </div>
         <div className='flex mr-10'>
         <HomePageName/>
-        
+  
         </div>
     </div>
  
