@@ -1,6 +1,5 @@
 import React from 'react'
 import ImageUpload from './ImageUpload'
-import Name from '../components/card-read-page/Name'
 import HomePageName from './HomePageName'
 
 

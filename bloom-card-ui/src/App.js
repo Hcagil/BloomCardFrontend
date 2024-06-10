@@ -7,6 +7,9 @@ import SocialAccounts from "./forms/SocialAccounts";
 import Navi from "./components/Navi";
 import Card from "./components/card-read-page/Card.jsx";
 import Homepage from "./components/Homepage.jsx";
+import Register from "./components/auth/Register.jsx";
+import Login from "./components/auth/Login.jsx";
+import ProtectedRoute from './components/auth/ProtectedRoute.jsx';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -96,6 +99,8 @@ function App() {
           element={<SocialAccounts socialAccounts={socialAccounts} setSocialAccounts={setSocialAccounts} />}
         />
         <Route path="/test" element={<Card />} />
+        {/*<Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />**/}
       </Routes>
     </div>
     </UserProvider>
