@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram, faTwitter, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram, faTwitter, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { useParams } from 'react-router-dom';
+
 
 function ReadSocial() {
   const [socialLinks, setSocialLinks] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/photos') // Örnek bir API adresi

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 
 function ReadCompanyInfo() {
   const [companyData, setCompanyData] = useState(null);
-  const userId = 1; // Göstermek istediğiniz kişinin ID'si
+  const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    axios.get(`https://jsonplaceholder.typicode.com/users/`)
       .then(response => setCompanyData(response.data))
       .catch(error => console.error('Error fetching company data:', error));
-  }, [userId]);
+  }, [id]);
 
   if (!companyData) return <p>Loading...</p>;
 

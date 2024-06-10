@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
-import { Route, Routes, NavLink, useLocation } from "react-router-dom";
-import { UserProvider } from './components/UserContext.jsx';  // Import UserProvider
+import { Route, Routes, NavLink, useLocation, useRoutes } from "react-router-dom";
+import { UserProvider } from './components/UserContext.jsx';  
 import PersonalInfo from "./forms/PersonalInfo";
 import CompanyInfo from "./forms/CompanyInfo";
 import SocialAccounts from "./forms/SocialAccounts";
 import Navi from "./components/Navi";
 import Card from "./components/card-read-page/Card.jsx";
 import Homepage from "./components/Homepage.jsx";
-import Register from "./components/auth/Register.jsx";
-import Login from "./components/auth/Login.jsx";
-import ProtectedRoute from './components/auth/ProtectedRoute.jsx';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -57,12 +54,23 @@ function App() {
     setActiveTab(tabName);
   };
 
+  const routes = useRoutes([
+    { path: "/personal", element: <PersonalInfo personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} /> },
+    { path: "/company", element: <CompanyInfo companyInfo={companyInfo} setCompanyInfo={setCompanyInfo} /> },
+    { path: "/social", element: <SocialAccounts socialAccounts={socialAccounts} setSocialAccounts={setSocialAccounts} /> },
+    { path: "/users/:id", element: <Card /> },
+    { path: "/home", element: <Homepage /> }
+  ]);
+
+  const showHomepage = location.pathname === '/personal' || location.pathname === '/company' || location.pathname === '/social';
+  const showNavButtons = location.pathname !== '//users/:id';
+
   return (
     <UserProvider>
       <div className="App bg-darkgrey">
-        {location.pathname !== "/test" && <Navi />}
-        {location.pathname !== "/test" && <Homepage />}
-        {location.pathname !== "/test" && (
+        <Navi />
+        {showHomepage && <Homepage />}
+        {showNavButtons && (
           <nav className="items-center flex justify-between space-x-2 tabs">
             <NavLink
               className={`align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg ${activeTab === 'Kişisel Bilgiler' ? 'bg-green text-darkgrey' : 'border-b border-[#cbe54e] text-white'} shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none`}
@@ -87,24 +95,7 @@ function App() {
             </NavLink>
           </nav>
         )}
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route
-            path="/personal"
-            element={<PersonalInfo personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />}
-          />
-          <Route
-            path="/company"
-            element={<CompanyInfo companyInfo={companyInfo} setCompanyInfo={setCompanyInfo} />}
-          />
-          <Route
-            path="/social"
-            element={<SocialAccounts socialAccounts={socialAccounts} setSocialAccounts={setSocialAccounts} />}
-          />
-          <Route path="/test" element={<Card />} />
-          {/* <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} /> */}
-        </Routes>
+        {routes}
       </div>
     </UserProvider>
   );
