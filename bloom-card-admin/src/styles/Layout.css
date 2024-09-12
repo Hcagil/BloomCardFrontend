@@ -1,0 +1,32 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+
+.sidebar {
+   
+    color: white;
+    padding: 1rem;
+    width: 250px;
+    
+}
+
+.layout-content {
+    display: flex;
+    flex: 1;
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+    background-color: #242424;
+}
+
+.footer {
+    
+    padding: 1rem;
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+{
+    "companyInfo": {
+      "companyName": "Doe Enterprises",
+      "companyAddress": "123 Business St, New York, NY",
+      "email": "contact@doeenterprises.com",
+      "phone": "+9876543210",
+      "iban": "TR123456789012345678901234",
+      "taxAdministrationNumber": "123456789",
+      "taxadministration": "New York Tax Office",
+      "accept": true
+    },
+    "personalInfo": {
+      "name": "zulal",
+      "surname": "yildiz",
+      "email": "zayildiz26@gmail.com",
+      "phone": "05432026468",
+      "accept": "true",
+      "profileImage": "/",
+      "coverImage": "/cover_img.png"
+    },
+    "socialInfo": {
+      "links": [
+        {
+          "type": "LinkedIn",
+          "url": "https://www.linkedin.com/in/zulal-yildiz",
+          "title": "LinkedIn Profile"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://twitter.com/zulalyildiz",
+          "title": "Twitter Profile"
+        },
+        {
+          "type": "GitHub",
+          "url": "https://github.com/zulalyildiz",
+          "title": "GitHub Profile"
+        }
+      ]
+    }
+  }
+  
