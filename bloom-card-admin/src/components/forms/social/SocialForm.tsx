@@ -12,7 +12,7 @@ interface SocialFormProps {
 }
 
 const SocialForm: React.FC<SocialFormProps> = ({ socialAccounts, setSocialAccounts }) => {
-  const [showInput, setShowInput] = useState(false);
+  const [showInput, setShowInput] = useState(true); // Form input alanını her zaman gösterecek şekilde ayarlandı.
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const SocialForm: React.FC<SocialFormProps> = ({ socialAccounts, setSocialAccoun
       newLinks = socialAccounts.links.concat(newLink);
     }
     setSocialAccounts({ ...socialAccounts, links: newLinks });
-    setShowInput(false);
+    setShowInput(true); // Form alanını açık tut.
   };
 
   const handleEditLink = (index: number) => {
@@ -43,7 +43,6 @@ const SocialForm: React.FC<SocialFormProps> = ({ socialAccounts, setSocialAccoun
   const handleDeleteLink = (index: number) => {
     const newLinks = socialAccounts.links.filter((_, i) => i !== index);
     setSocialAccounts({ ...socialAccounts, links: newLinks });
-    
   };
 
   return (
@@ -51,31 +50,22 @@ const SocialForm: React.FC<SocialFormProps> = ({ socialAccounts, setSocialAccoun
       <Formik
         initialValues={socialAccounts}
         onSubmit={(values, { setSubmitting }) => {
-          // İşlem bittikten sonra isSubmitting'i false yapar.
           setSubmitting(false);
           console.log('Submitted values:', values);
         }}
       >
         {({ isSubmitting }) => (
-          <Form className="p-6 m-4 grid gap-y-4 max-w-xl mx-auto  rounded-md">
+          <Form className="p-6 m-4 grid gap-y-4 max-w-xl mx-auto rounded-md">
             <SocialLinkList
               links={socialAccounts.links}
               onEdit={handleEditLink}
               onDelete={handleDeleteLink}
             />
-            {!showInput && (
-              <FormButton
-                text="Yeni Link Ekle"
-                onClick={() => setShowInput(true)}
-                isSubmitting={isSubmitting}
-                type="button"
-              />
-            )}
             {showInput && (
               <SocialLinkInput
                 editingIndex={editingIndex}
                 onAddLink={handleAddLink}
-                onCancel={() => setShowInput(false)}
+                onCancel={() => setShowInput(false)} // Eğer input alanını gizlemek isterseniz burayı ayarlayabilirsiniz
                 existingLink={editingIndex !== null ? socialAccounts.links[editingIndex] : undefined}
               />
             )}

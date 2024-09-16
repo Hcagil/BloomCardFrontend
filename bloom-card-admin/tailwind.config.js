@@ -7,8 +7,10 @@ module.exports = {
   theme: {
    
     extend: {
+      
       colors: {
         darkgrey: '#1e1e1e',
+        bordergrey: '#484f56',
         grey: '#2a2a2a',
         darkgreen: '#99b21a',
         green: '#def241',
@@ -22,6 +24,12 @@ module.exports = {
       height: {
         '40-r': '40rem',
         '35-r': '35rem'
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(90deg, #def241 0%, #99b21a 50%, #1e1e1e 100%)',
+      },
+      borderImage: {
+        'custom-gradient': 'linear-gradient(90deg, #def241 0%, #99b21a 50%, #1e1e1e 100%)',
       },
     },
     

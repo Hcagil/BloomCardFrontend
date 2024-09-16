@@ -42,25 +42,25 @@ const ReadPersonal: React.FC = () => {
   };
 
   return (
-    <div className="space-y-4 text-sm text-gray-700">
+    <div className=" space-y-4 text-sm ">
       {personalInfo && (
         <>
       
           {/* Email satırı */}
           <div
-            className="flex items-center border border-gray-700 text-white p-2 rounded-lg cursor-pointer hover:bg-gray-600"
+            className="flex items-center shadow-xl border border-bordergrey text-white p-2 rounded-lg cursor-pointer"
             onClick={openEmail}
           >
-            <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-lg" />
+            <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-lg hover:text-green" />
             <span>{personalInfo.email}</span>
           </div>
 
           {/* Telefon satırı */}
           <div
-            className="flex items-center border border-gray-700 text-white p-2 rounded-lg cursor-pointer hover:bg-gray-600"
+            className="flex items-center shadow-xl border border-bordergrey text-white p-2 rounded-lg cursor-pointe"
             onClick={makeCall}
           >
-            <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
+            <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg hover:text-green" />
             <span>{personalInfo.phone}</span>
           </div>
         </>

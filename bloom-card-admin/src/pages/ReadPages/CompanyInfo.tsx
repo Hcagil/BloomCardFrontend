@@ -38,45 +38,46 @@ const CompanyInfoTab: React.FC = () => {
     <div className="space-y-4 text-sm text-gray-700">
       {companyInfo && (
         <>
-          <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <div className="flex items-center bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
             <FontAwesomeIcon icon={faBuilding} className="mr-2 text-lg" />
             <span>{companyInfo.companyName}</span>
           </div>
 
-          <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <div className="flex items-center bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
             <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-lg" />
             <span>{companyInfo.email}</span>
           </div>
 
-          <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <div className="flex items-center bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
             <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
             <span>{companyInfo.phone}</span>
           </div>
 
-          <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <div className="flex items-center bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
             <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lg" />
             <span>{companyInfo.companyLocationLink}</span>
             <a
               href={getGoogleMapsLink(companyInfo.companyLocationLink)}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 text-blue-500 hover:text-blue-700"
+              className="ml-2 text-bordergrey hover:text-darkgreen"
             >
+               <span>{companyInfo.companyLocationLink}</span>
               <FontAwesomeIcon icon={faExternalLinkAlt} className="text-lg" />
             </a>
           </div>
 
-          <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <div className="flex items-center bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
             <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
             <span>{companyInfo.iban}</span>
           </div>
           
-          <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <div className="flex items-center bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
             <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
             <span>{companyInfo.taxAdministrationNumber}</span>
           </div>
 
-          <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <div className="flex items-center  bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
             <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
             <span>{companyInfo.taxadministration}</span>
           </div>

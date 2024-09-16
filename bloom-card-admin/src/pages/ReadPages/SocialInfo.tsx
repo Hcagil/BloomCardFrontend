@@ -1,32 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getSocialInfo } from '../../services/api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faTwitter, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons'; // Sosyal medya ikonları
+
+interface SocialLink {
+  type: string;
+  url: string;
+  title: string;
+}
+
+interface SocialInfo {
+  links: SocialLink[];
+}
 
 const SocialAccountsTab: React.FC = () => {
-  const [socialAccounts, setSocialAccounts] = useState({
-    linkedIn: 'linkedin.com/in/johndoe',
-    twitter: 'twitter.com/johndoe',
-    instagram: 'instagram.com/johndoe',
-  });
+  const [socialInfo, setSocialInfo] = useState<SocialInfo | null>(null);
+
+  useEffect(() => {
+    // API'den sosyal medya bilgilerini çekiyoruz
+    getSocialInfo()
+      .then((response) => {
+        setSocialInfo(response.data); // API'den dönen veriyi state'e atıyoruz
+      })
+      .catch((error) => {
+        console.error('Error fetching social info:', error);
+      });
+  }, []);
+
+  // Sosyal medya ikonunu tipine göre seçme fonksiyonu
+  const getSocialIcon = (type: string) => {
+    switch (type) {
+      case 'LinkedIn':
+        return faLinkedin;
+      case 'Twitter':
+        return faTwitter;
+      case 'GitHub':
+        return faGithub;
+        case 'Instagram':
+        return faInstagram;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div className="space-y-4">
-      <div>
-        <label className="block text-sm font-medium">LinkedIn:</label>
-        <a href={`https://${socialAccounts.linkedIn}`} target="_blank" rel="noopener noreferrer" className="text-blue-500">
-          {socialAccounts.linkedIn}
-        </a>
-      </div>
-      <div>
-        <label className="block text-sm font-medium">Twitter:</label>
-        <a href={`https://${socialAccounts.twitter}`} target="_blank" rel="noopener noreferrer" className="text-blue-500">
-          {socialAccounts.twitter}
-        </a>
-      </div>
-      <div>
-        <label className="block text-sm font-medium">Instagram:</label>
-        <a href={`https://${socialAccounts.instagram}`} target="_blank" rel="noopener noreferrer" className="text-blue-500">
-          {socialAccounts.instagram}
-        </a>
-      </div>
+    <div className="space-y-4 text-sm text-gray-700">
+      {socialInfo?.links.map((link) => (
+        <div key={link.url} className="flex items-center bg-custom-background border border-gray-700 text-white p-2 rounded-lg">
+          {getSocialIcon(link.type) && (
+            <FontAwesomeIcon icon={getSocialIcon(link.type)!} className="mr-2 text-lg" />
+          )}
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-700"
+          >
+            {link.title}
+          </a>
+        </div>
+      ))}
     </div>
   );
 };

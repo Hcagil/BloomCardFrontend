@@ -26,8 +26,8 @@ const ProfileTabs: React.FC = () => {
           onClick={() => setActiveTab('personalInfo')}
           className={`text-sm py-2 px-4 ${
             activeTab === 'personalInfo'
-              ? 'bg-green text-darkgrey border-b-4 border-green rounded-lg'
-              : 'bg-transparent text-white hover:text-green border rounded-lg border-green'
+              ? 'bg-transparent text-green border border-green rounded-xl shadow-md'
+              : 'bg-transparent text-white hover:text-green border rounded-lg border-grey shadow-md'
           }`}
         >
           Kişisel Bilgiler
@@ -36,8 +36,8 @@ const ProfileTabs: React.FC = () => {
           onClick={() => setActiveTab('companyInfo')}
           className={`text-sm py-2 px-4 ${
             activeTab === 'companyInfo'
-              ? 'bg-green text-darkgrey border-b-4 border-green rounded-lg'
-              : 'bg-transparent text-white hover:text-green border rounded-lg border-green'
+              ? 'bg-transparent text-green border border-green rounded-xl shadow-md'
+              : 'bg-transparent text-white hover:text-green border rounded-lg border-grey shadow-md'
           }`}
         >
           Şirket Bilgileri
@@ -46,8 +46,8 @@ const ProfileTabs: React.FC = () => {
           onClick={() => setActiveTab('socialAccounts')}
           className={`text-sm py-2 px-4 ${
             activeTab === 'socialAccounts'
-              ? 'bg-green text-darkgrey border-b-4 border-green rounded-lg'
-              : 'bg-transparent text-white hover:text-green border rounded-lg border-green'
+              ? 'bg-transparent text-green border border-green rounded-xl shadow-md'
+              : 'bg-transparent text-white hover:text-green border rounded-lg border-grey shadow-md'
           }`}
         >
           Sosyal Hesaplar

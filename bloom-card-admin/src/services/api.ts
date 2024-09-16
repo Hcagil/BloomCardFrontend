@@ -9,7 +9,7 @@ export const setToken = (keycloak: KeycloakInstance) => {
 
 // Axios instance oluştur
 const api = axios.create({
-    baseURL: 'http://localhost:8080/api/', // Backend URL'ini uygun şekilde güncelle
+    baseURL: 'http://localhost:5000/', // Backend URL'ini uygun şekilde güncelle
     headers: {
         'Content-Type': 'application/json',
     },

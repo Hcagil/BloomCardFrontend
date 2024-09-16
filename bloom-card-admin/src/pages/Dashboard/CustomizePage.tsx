@@ -113,24 +113,27 @@ const CustomizePage: React.FC = () => {
             <div className="flex-1">
 
                  {/* Kaydet butonu */}
-                <div className='flex flex-1 justify-end'>
-                <FormButton 
-                    isSubmitting={isSubmitting}
-                    text="Kaydet"
-                    onClick={saveProfile}  // Tek bir merkezi kaydetme işlemi
-                />
-                </div>
+                <div className='flex justify-between lg:flex-row-reverse items-center mb-4'>
 
                 {/* Mobilde 'Önizle' butonu */}
-                <div className="lg:hidden mb-4">
+                <div className="lg:hidden">
                     <button 
-                        className="bg-blue-500 text-white py-2 px-4 rounded"
+                        className="bg-transparent text-white border border-green rounded-xl shadow-md py-2 px-4 "
                         onClick={() => setShowProfileModal(true)} // Modalı aç
                     >
                         Önizle
                     </button>
                 </div>
 
+                <FormButton 
+                    isSubmitting={isSubmitting}
+                    text="Kaydet"
+                    onClick={saveProfile}  // Tek bir merkezi kaydetme işlemi
+                    className="py-2 px-4 rounded-xl shadow-md"
+                />
+                </div>
+
+                
                 {/* Modal yapısı */}
                 {showProfileModal && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
