@@ -17,30 +17,47 @@ interface CompanyInfoProps {
 const CompanyInfo: React.FC<CompanyInfoProps> = ({ companyInfo }) => {
   return (
     <div className="text-sm text-gray-700 space-y-4">
-      <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
-        <FontAwesomeIcon icon={faBuilding} className="mr-2 text-lg" />
-        <span>{companyInfo.companyName}</span>
-      </div>
-      <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
-        <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lg" />
-        <span>{companyInfo.companyAddress}</span>
-      </div>
-      <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
-        <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
-        <span>{companyInfo.phone}</span>
-      </div>
+      {/* Şirket ismi */}
+      {companyInfo.companyName && (
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <FontAwesomeIcon icon={faBuilding} className="mr-2 text-lg" />
+          <span>{companyInfo.companyName}</span>
+        </div>
+      )}
+      
+      {/* Şirket adresi */}
+      {companyInfo.companyAddress && (
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lg" />
+          <span>{companyInfo.companyAddress}</span>
+        </div>
+      )}
+
+      {/* Telefon numarası */}
+      {companyInfo.phone && (
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+          <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
+          <span>{companyInfo.phone}</span>
+        </div>
+      )}
+
+      {/* IBAN */}
       {companyInfo.iban && (
         <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
           <FontAwesomeIcon icon={faMoneyBill} className="mr-2 text-lg" />
           <span>{companyInfo.iban}</span>
         </div>
       )}
+
+      {/* Vergi numarası */}
       {companyInfo.taxAdministrationNumber && (
         <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
           <FontAwesomeIcon icon={faFileInvoice} className="mr-2 text-lg" />
           <span>{companyInfo.taxAdministrationNumber}</span>
         </div>
       )}
+
+      {/* Vergi dairesi */}
       {companyInfo.taxadministration && (
         <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
           <FontAwesomeIcon icon={faFileInvoice} className="mr-2 text-lg" />
