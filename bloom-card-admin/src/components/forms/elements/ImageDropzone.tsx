@@ -35,7 +35,7 @@ const ImageDropzone: React.FC<ImageDropzoneProps> = ({ onImageUpload, label, isC
       {...getRootProps()}
       className={`flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-lg transition-all duration-200 ease-in-out ${
         isDragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300 bg-gray-100'
-      } hover:border-blue-500 hover:bg-blue-50 ${isCover ? 'w-full h-40' : 'w-40 h-40'}`}
+      } hover:border-blue-500 hover:bg-blue-50 ${isCover ? 'w-full h-40' : 'w-full h-40'}`}
     >
       <input {...getInputProps()} className="hidden" />
       <svg

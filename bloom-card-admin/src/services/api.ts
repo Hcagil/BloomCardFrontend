@@ -28,6 +28,18 @@ api.interceptors.request.use(
     }
 );
 
+// Resim yükleme isteği (POST)
+export const submitImage = (file: File) => {
+    const formData = new FormData();
+    formData.append('file', file); // Resim dosyasını FormData ile ekliyoruz
+
+    return api.post('/uploadImage', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data', // FormData için uygun içerik tipi
+        },
+    });
+};
+
 // Kişisel bilgileri gönderme isteği (POST)
 export const submitPersonalInfo = (data: any) => {
     return api.post('/personalInfo', data);

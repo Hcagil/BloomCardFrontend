@@ -1,9 +1,7 @@
 import React from 'react';
 import { Formik, Form } from "formik";
 import FormInput from './elements/FormInput';
-import FormButton from './elements/FormButton';
 import Checkbox from './elements/Checkbox';
-import ImageDropzone from './elements/ImageDropzone';
 import { PersonalInfoSchema } from '../../schemas/validationSchemas';
 
 interface ContactFormProps {
@@ -84,6 +82,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
               setContactInfo(prev => ({ ...prev, phone: e.target.value }));
             }}
           />
+          {/*
           <ImageDropzone
             onImageUpload={(base64) => setContactInfo(prev => ({ ...prev, profileImage: base64 }))}
             label="Profil Resmi"
@@ -93,6 +92,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
             label="Kapak Resmi"
             isCover
           />
+        */}
           <Checkbox
             name="accept"
             checked={values.accept}

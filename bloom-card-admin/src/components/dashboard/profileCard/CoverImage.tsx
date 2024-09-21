@@ -4,14 +4,14 @@ import ImageCropper from './../../forms/elements/ImageCropper'; // ImageCropper 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-interface ProfileImageProps {
-  profileImage?: string;
-  userInitial: string;
+interface CoverImageProps {
+  coverImage?: string;
 }
 
-const ProfileImage: React.FC<ProfileImageProps> = ({ profileImage, userInitial }) => {
+const ProfileImage: React.FC<CoverImageProps> = ({ coverImage}) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [newProfileImage, setNewProfileImage] = useState<string | undefined>(profileImage);
+  const [isCoverImageModalOpen, setIsCoverImageModalOpen] = useState(false);
+  const [newCoverImage, setNewCoverImage] = useState<string | undefined>(coverImage);
   const [imageToCrop, setImageToCrop] = useState<string | null>(null);
   const [isCropping, setIsCropping] = useState(false);
   
@@ -26,7 +26,7 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ profileImage, userInitial }
 
   // Kırpma işlemi tamamlandığında kırpılan resmi kaydet
   const handleCropComplete = (croppedImage: string) => {
-    setNewProfileImage(croppedImage); // Kırpılan resmi profil fotoğrafı olarak ayarla
+    setNewCoverImage(croppedImage); // Kırpılan resmi profil fotoğrafı olarak ayarla
     setIsCropping(false); // Kırpma modundan çık
     setIsEditing(false); // Modalı kapat
   };
@@ -41,27 +41,28 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ profileImage, userInitial }
 
   return (
     <div className="relative">
-      <div className="absolute top-25 left-1/2 transform -translate-x-1/2 -translate-y-12">
-        {newProfileImage ? (
-          <img
-            src={newProfileImage}
-            alt="User Profile"
-            className="w-24 h-24 rounded-full border-4 border-white shadow-md object-cover"
-          />
+      <div className="relative w-full h-32">
+        {newCoverImage ? (
+          <img src={newCoverImage} alt="Cover" className="w-full h-full object-cover rounded-t-lg" />
         ) : (
-          <div className="w-24 h-24 bg-gray-300 text-black-100 rounded-full flex items-center justify-center text-4xl font-bold border-4 border-white shadow-md">
-            {userInitial}
-          </div>
+          <div
+            className="w-full h-full rounded-t-lg"
+            style={{
+              backgroundImage: `url('/cover_img.png')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          ></div>
         )}
-
-        {/* Profil fotoğrafını düzenleme ikonu */}
+        {/* Kapak fotoğrafı düzenleme ikonu */}
         <button
           onClick={() => setIsEditing(true)}
-          className="absolute bottom-0 right-0 bg-green p-1 rounded-full shadow-md"
+          className="absolute top-2 right-2 bg-green p-1 rounded-full shadow-md"
         >
           <FontAwesomeIcon icon={faEdit} className="text-darkgrey w-4 h-4" />
         </button>
       </div>
+
 
       {/* Modal: Fotoğraf Yükleme ve Kırpma */}
       {isEditing && (
@@ -83,7 +84,7 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ profileImage, userInitial }
 
             {/* Fotoğraf yüklenmişse kırpma işlemi yapılacak, yüklenmemişse yükleme yapılacak */}
             {!isCropping ? (
-              <ImageDropzone onImageUpload={handleImageUpload} label="Profil Fotoğrafı" />
+              <ImageDropzone onImageUpload={handleImageUpload} label="Kapak Fotoğrafı" />
             ) : (
               <ImageCropper imageSrc={imageToCrop!} onCropComplete={handleCropComplete} />
             )}

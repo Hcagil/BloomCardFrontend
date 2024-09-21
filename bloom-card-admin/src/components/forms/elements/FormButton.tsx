@@ -23,7 +23,7 @@ const FormButton: React.FC<FormButtonProps> = ({
             onClick={onClick}
             
         >
-            {isSubmitting ? 'Submitting...' : text}
+            {isSubmitting ? 'Kaydediliyor...' : text}
         </button>
     );
 };

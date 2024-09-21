@@ -25,6 +25,7 @@ const SocialLinkInput: React.FC<SocialLinkInputProps> = ({ editingIndex, onAddLi
         if (!type || !url || !title) return;
         onAddLink({ type, url, title });
     };
+    
 
     return (
         <div className=" px-6 py-2">

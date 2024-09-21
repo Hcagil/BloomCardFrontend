@@ -15,21 +15,16 @@ const SocialForm: React.FC<SocialFormProps> = ({ socialAccounts, setSocialAccoun
   const [showInput, setShowInput] = useState(true); // Form input alanını her zaman gösterecek şekilde ayarlandı.
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    const savedSocialAccounts = localStorage.getItem('socialAccounts');
-    if (savedSocialAccounts) {
-      setSocialAccounts(JSON.parse(savedSocialAccounts));
-    }
-  }, [setSocialAccounts]);
+  
 
   const handleAddLink = (newLink: { type: string; url: string; title: string }) => {
     let newLinks;
     if (editingIndex !== null) {
       newLinks = [...socialAccounts.links];
-      newLinks[editingIndex] = newLink;
-      setEditingIndex(null);
+      newLinks[editingIndex] = newLink; // Eski linki düzenlenen link ile değiştir.
+      setEditingIndex(null); // Düzenleme modundan çık.
     } else {
-      newLinks = socialAccounts.links.concat(newLink);
+      newLinks = socialAccounts.links.concat(newLink); // Yeni link ekleniyor.
     }
     setSocialAccounts({ ...socialAccounts, links: newLinks });
     setShowInput(true); // Form alanını açık tut.
@@ -41,9 +36,10 @@ const SocialForm: React.FC<SocialFormProps> = ({ socialAccounts, setSocialAccoun
   };
 
   const handleDeleteLink = (index: number) => {
-    const newLinks = socialAccounts.links.filter((_, i) => i !== index);
+    const newLinks = socialAccounts.links.filter((_, i) => i !== index); // İlgili indeksi filtrele.
     setSocialAccounts({ ...socialAccounts, links: newLinks });
   };
+  
 
   return (
     <div className="px-6 py-2 lg:px-8">
