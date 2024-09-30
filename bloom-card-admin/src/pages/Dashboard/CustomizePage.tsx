@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
     submitPersonalInfo,
     getPersonalInfo,
@@ -16,7 +19,7 @@ import FormButton from '../../components/forms/elements/FormButton';
 
 const CustomizePage: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [showProfileModal, setShowProfileModal] = useState(false); // ProfileCard modal görünürlüğünü kontrol eden state
+    const [showProfileModal, setShowProfileModal] = useState(false); 
     const [contactInfo, setContactInfo] = useState({
         name: '',
         surname: '',
@@ -51,23 +54,23 @@ const CustomizePage: React.FC = () => {
         try {
             // Backend'den kişisel bilgileri al
             const personalResponse = await getPersonalInfo();
-            console.log('Kişisel bilgiler başarıyla alındı:', personalResponse.data); // Konsola yazdır
+            console.log('Kişisel bilgiler başarıyla alındı:', personalResponse.data); 
     
             setContactInfo(personalResponse.data);
     
             // Backend'den şirket bilgilerini al
             const companyResponse = await getCompanyInfo();
-            console.log('Şirket bilgileri başarıyla alındı:', companyResponse.data); // Konsola yazdır
+            console.log('Şirket bilgileri başarıyla alındı:', companyResponse.data); 
     
             setCompanyInfo(companyResponse.data);
     
             // Backend'den sosyal medya bilgilerini al
             const socialResponse = await getSocialInfo();
-            console.log('Sosyal medya bilgileri başarıyla alındı:', socialResponse.data); // Konsola yazdır
+            console.log('Sosyal medya bilgileri başarıyla alındı:', socialResponse.data); 
     
             setSocialAccounts(socialResponse.data);
         } catch (error) {
-            console.error('Profil bilgileri alınırken hata oluştu:', error); // Hata mesajını konsola yazdır
+            console.error('Profil bilgileri alınırken hata oluştu:', error); 
         }
     };
     
@@ -76,15 +79,12 @@ const CustomizePage: React.FC = () => {
     const saveProfile = async () => {
         setIsSubmitting(true);
         try {
-          // Kişisel bilgiler API isteği
           await submitPersonalInfo(contactInfo);
           console.log('Kişisel bilgiler başarıyla gönderildi:', contactInfo);
     
-          // Şirket bilgileri API isteği
           await submitCompanyInfo(companyInfo);
           console.log('Şirket bilgileri başarıyla gönderildi:', companyInfo);
-    
-          // Sosyal medya bilgileri API isteği
+          
           await submitSocialInfo(socialAccounts);
           console.log('Sosyal medya bilgileri başarıyla gönderildi:', socialAccounts);
     
@@ -119,31 +119,30 @@ const CustomizePage: React.FC = () => {
                 <div className="lg:hidden">
                     <button 
                         className="bg-transparent text-white border border-green rounded-xl shadow-md py-2 px-4 "
-                        onClick={() => setShowProfileModal(true)} // Modalı aç
+                        onClick={() => setShowProfileModal(true)} 
                     >
                         Önizle
                     </button>
                 </div>
+                
 
                 <FormButton 
                     isSubmitting={isSubmitting}
                     text="Kaydet"
-                    onClick={saveProfile}  // Tek bir merkezi kaydetme işlemi
+                    onClick={saveProfile} 
                     className="py-2 px-4 rounded-xl shadow-md"
                 />
                 </div>
-
                 
-                {/* Modal yapısı */}
                 {showProfileModal && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                        <div className="bg-white rounded-lg p-4 w-full max-w-md">
-                            <button
-                                className="text-right text-red-500 font-bold"
-                                onClick={() => setShowProfileModal(false)} // Modalı kapat
-                            >
-                                Kapat
-                            </button>
+                    <div className="fixed inset-0 bg-darkgrey bg-opacity-50 flex justify-center items-center z-50 lg:hidden">
+                        <div className="rounded-lg p-4 w-full max-w-md mx-auto">
+                        <button
+                            className="absolute top-[7%] right-[10%] text-white text-3xl z-50"
+                            onClick={() => setShowProfileModal(false)}
+                        >
+                            <FontAwesomeIcon icon={faTimes} />
+                        </button>
                             <ProfileCard
                                 contactInfo={contactInfo}
                                 companyInfo={companyInfo}
@@ -154,6 +153,7 @@ const CustomizePage: React.FC = () => {
                         </div>
                     </div>
                 )}
+
 
                 <Tabs
                     tabs={[

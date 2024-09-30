@@ -52,7 +52,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ contactInfo, companyInfo, soc
   };
 
   return (
-    <div className="bg-darkgrey shadow-md rounded-lg relative max-w-xs overflow-hidden h-[700px]">
+    <div className="bg-darkgrey shadow-md rounded-lg relative  overflow-hidden h-[700px]">
       {/* Kapak Görseli */}
       <CoverImage coverImage={coverImage}/>
       {/* Profil Fotoğrafı */}
