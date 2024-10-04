@@ -14,7 +14,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ contactInfo }) => {
     <div className="text-sm text-gray-700 space-y-4">
       {/* Eğer email mevcutsa göster */}
       {contactInfo.email && (
-        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg hover:text-green">
           <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-lg" />
           <span>{contactInfo.email}</span>
         </div>
@@ -22,7 +22,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ contactInfo }) => {
 
       {/* Eğer telefon numarası mevcutsa göster */}
       {contactInfo.phone && (
-        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg hover:text-green">
           <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
           <span>{contactInfo.phone}</span>
         </div>

@@ -11,7 +11,15 @@ const LogoutButton = () => {
     keycloak.logout();
   };
 
-  return <button onClick={handleLogout}>Çıkış Yap</button>;
+  return(
+    <button 
+      onClick={handleLogout}
+      className='ml-2 font-semibold'
+    >
+        Çıkış Yap
+    </button>    
+    );
+  
 };
 
 export default LogoutButton;

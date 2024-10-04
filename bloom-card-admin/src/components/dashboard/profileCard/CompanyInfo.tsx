@@ -19,7 +19,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ companyInfo }) => {
     <div className="text-sm text-gray-700 space-y-4">
       {/* Şirket ismi */}
       {companyInfo.companyName && (
-        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg hover:text-green">
           <FontAwesomeIcon icon={faBuilding} className="mr-2 text-lg" />
           <span>{companyInfo.companyName}</span>
         </div>
@@ -27,7 +27,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ companyInfo }) => {
       
       {/* Şirket adresi */}
       {companyInfo.companyAddress && (
-        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg hover:text-green">
           <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lg" />
           <span>{companyInfo.companyAddress}</span>
         </div>
@@ -35,7 +35,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ companyInfo }) => {
 
       {/* Telefon numarası */}
       {companyInfo.phone && (
-        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg hover:text-green">
           <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
           <span>{companyInfo.phone}</span>
         </div>
@@ -43,7 +43,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ companyInfo }) => {
 
       {/* IBAN */}
       {companyInfo.iban && (
-        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg hover:text-green">
           <FontAwesomeIcon icon={faMoneyBill} className="mr-2 text-lg" />
           <span>{companyInfo.iban}</span>
         </div>
@@ -51,7 +51,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ companyInfo }) => {
 
       {/* Vergi numarası */}
       {companyInfo.taxAdministrationNumber && (
-        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg hover:text-green">
           <FontAwesomeIcon icon={faFileInvoice} className="mr-2 text-lg" />
           <span>{companyInfo.taxAdministrationNumber}</span>
         </div>
@@ -59,7 +59,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ companyInfo }) => {
 
       {/* Vergi dairesi */}
       {companyInfo.taxadministration && (
-        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg">
+        <div className="flex items-center border border-gray-700 text-white p-2 rounded-lg hover:text-green">
           <FontAwesomeIcon icon={faFileInvoice} className="mr-2 text-lg" />
           <span>{companyInfo.taxadministration}</span>
         </div>

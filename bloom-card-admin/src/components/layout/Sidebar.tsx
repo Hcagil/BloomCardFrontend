@@ -10,10 +10,10 @@ const Sidebar: React.FC = () => {
         <>
             {/* Hamburger menüsü butonu (sadece mobilde görünür) */}
             <button 
-                className="lg:hidden fixed top-4 left-4 z-50 p-2 text-white bg-darkgrey rounded-lg"
+                className="lg:hidden fixed top-4 right-20 z-50 p-2 text-white bg-darkgrey rounded-lg"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <FontAwesomeIcon icon={isOpen ? faTimes : faBars} className="text-xl" />
+                <FontAwesomeIcon icon={isOpen ? faTimes : faBars} className="text-xl " />
             </button>
 
             {/* Sidebar */}

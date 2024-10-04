@@ -141,7 +141,14 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ companyInfo, setCompanyInfo }
               handleChange(e);
               setCompanyInfo(prev => ({ ...prev, accept: e.target.checked }));
             }}
-            label="I accept the terms and conditions"
+            label={
+              <>
+                  Şartları ve koşulları{' '}
+                  <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="text-green-500 underline">
+                      kabul ediyorum.
+                  </a>
+              </>
+          }
           />
           
         </Form>

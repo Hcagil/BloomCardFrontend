@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import FormInput from './elements/FormInput';
 import Checkbox from './elements/Checkbox';
 import { PersonalInfoSchema } from '../../schemas/validationSchemas';
+import ImageDropzone from './elements/ImageDropzone';
 
 interface ContactFormProps {
   contactInfo: {
@@ -82,7 +83,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
               setContactInfo(prev => ({ ...prev, phone: e.target.value }));
             }}
           />
-          {/*
+        <div className='lg:hidden flex max-w-sm mx-auto justify-between'>
           <ImageDropzone
             onImageUpload={(base64) => setContactInfo(prev => ({ ...prev, profileImage: base64 }))}
             label="Profil Resmi"
@@ -92,7 +93,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
             label="Kapak Resmi"
             isCover
           />
-        */}
+        </div>
           <Checkbox
             name="accept"
             checked={values.accept}
@@ -100,7 +101,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
               handleChange(e);
               setContactInfo(prev => ({ ...prev, accept: e.target.checked }));
             }}
-            label="I accept the terms and conditions"
+            label={
+              <>
+                  Şartları ve koşulları{' '}
+                  <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="text-green-500 underline">
+                      kabul ediyorum.
+                  </a>
+              </>
+          }
           />
          
         </Form>

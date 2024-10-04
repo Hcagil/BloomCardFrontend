@@ -5,7 +5,7 @@ interface CheckboxProps {
     checked: boolean;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-    label: string;
+    label: React.ReactNode;
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({ name, checked, onChange, onBlur, label }) => {

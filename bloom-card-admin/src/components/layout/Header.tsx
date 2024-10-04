@@ -10,7 +10,7 @@ const Header: React.FC = () => {
 
   return (
     <nav className="bg-darkgrey shadow-xl">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
@@ -24,18 +24,18 @@ const Header: React.FC = () => {
             {/* Profile Picture as Button */}
             <button
               onClick={toggleMenu}
-              className="bg-gray-800 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              className="bg-gray border border-green p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
             >
               <img
                 className="h-8 w-8 rounded-full"
-                src="https://via.placeholder.com/150" // Kullanıcının profil fotoğrafı burada kullanılacak
+                src="https://via.placeholder.com/150"
                 alt="User profile"
               />
             </button>
 
             {/* Dropdown Menu */}
             {isOpen && (
-              <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-800 ring-1 ring-black ring-opacity-5 text-white focus:outline-none top-full">
+              <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-darkgrey ring-1 ring-black ring-opacity-5 text-white focus:outline-none top-full">
                 <LogoutButton />
               </div>
             )}

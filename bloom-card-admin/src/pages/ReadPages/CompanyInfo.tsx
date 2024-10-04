@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBuilding, faMapMarkerAlt, faPhone, faEnvelope, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBuilding, faMapMarkerAlt, faPhone, faEnvelope, faExternalLinkAlt, faMoneyBill, faFileInvoice } from '@fortawesome/free-solid-svg-icons';
 import { getCompanyInfo } from '../../services/api'; // Axios üzerinden API çağrısı
 
 interface CompanyInfo {
     companyName: string;
-    companyLocationLink: string;
+    companyAddress: string;
     email: string;
     phone: string;
     iban: string;
@@ -53,32 +53,33 @@ const CompanyInfoTab: React.FC = () => {
             <span>{companyInfo.phone}</span>
           </div>
 
-          <div className="flex items-center bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
+          <div className="flex items-center justify-between bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
+          <div className="flex items-center">
             <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lg" />
-            <span>{companyInfo.companyLocationLink}</span>
+            <span>{companyInfo.companyAddress}</span>
+          </div>
             <a
-              href={getGoogleMapsLink(companyInfo.companyLocationLink)}
+              href={getGoogleMapsLink(companyInfo.companyAddress)}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 text-bordergrey hover:text-darkgreen"
+              className="ml-2 text-white hover:text-darkgreen"
             >
-               <span>{companyInfo.companyLocationLink}</span>
-              <FontAwesomeIcon icon={faExternalLinkAlt} className="text-lg" />
+              <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2 items-center text-lg" />
             </a>
           </div>
 
           <div className="flex items-center bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
-            <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
+            <FontAwesomeIcon icon={faMoneyBill} className="mr-2 text-lg" />
             <span>{companyInfo.iban}</span>
           </div>
           
           <div className="flex items-center bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
-            <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
+            <FontAwesomeIcon icon={faFileInvoice} className="mr-2 text-lg" />
             <span>{companyInfo.taxAdministrationNumber}</span>
           </div>
 
           <div className="flex items-center  bg-custom-background border border-bordergrey text-white p-2 rounded-lg">
-            <FontAwesomeIcon icon={faPhone} className="mr-2 text-lg" />
+            <FontAwesomeIcon icon={faBuilding} className="mr-2 text-lg" />
             <span>{companyInfo.taxadministration}</span>
           </div>
         </>

@@ -54,7 +54,7 @@ const SocialAccountsTab: React.FC = () => {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-700"
+            className="text-white hover:text-green"
           >
             {link.title}
           </a>

@@ -15,10 +15,10 @@ const ImageDropzone: React.FC<ImageDropzoneProps> = ({ onImageUpload, label, isC
 
       reader.onloadend = () => {
         const base64String = reader.result as string;
-        onImageUpload(base64String); // Base64 string'i ContactForm'a gönderiyoruz.
+        onImageUpload(base64String); 
       };
 
-      reader.readAsDataURL(file); // File'ı base64 string'e çeviriyoruz.
+      reader.readAsDataURL(file);
     }
   }, [onImageUpload]);
 
@@ -34,8 +34,8 @@ const ImageDropzone: React.FC<ImageDropzoneProps> = ({ onImageUpload, label, isC
     <div
       {...getRootProps()}
       className={`flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-lg transition-all duration-200 ease-in-out ${
-        isDragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300 bg-gray-100'
-      } hover:border-blue-500 hover:bg-blue-50 ${isCover ? 'w-full h-40' : 'w-full h-40'}`}
+        isDragActive ? 'border-green ' : ''
+      } hover:border-green hover:bg-gray-500 ${isCover ? 'w-40 h-40' : 'w-40 h-40'}`}
     >
       <input {...getInputProps()} className="hidden" />
       <svg
@@ -52,8 +52,8 @@ const ImageDropzone: React.FC<ImageDropzoneProps> = ({ onImageUpload, label, isC
           d="M7 16V7a2 2 0 012-2h6a2 2 0 012 2v9m-7 4h6a2 2 0 002-2v-5a2 2 0 00-2-2h-6a2 2 0 00-2 2v5a2 2 0 002 2z"
         />
       </svg>
-      <p className="text-gray-500 text-center text-sm">
-        {isDragActive ? 'Bırakın dosyayı...' : `${label} yüklemek için tıklayın veya sürükleyip bırakın`}
+      <p className="text-gray-300 text-center text-sm">
+        {isDragActive ? 'Bırakın dosyayı...' : `${label} yüklemek için tıklayın!`}
       </p>
     </div>
   );
