@@ -1,11 +1,11 @@
 import * as Yup from 'yup';
 
 export const PersonalInfoSchema = Yup.object().shape({
-    firstname: Yup.string()
+    name: Yup.string()
         .min(2, 'Ad en az 2 karakter olmalıdır')
         .max(50, 'Ad en fazla 50 karakter olabilir')
         .required('Ad gerekli'),
-    lastname: Yup.string()
+    surname: Yup.string()
         .min(2, 'Soyad en az 2 karakter olmalıdır')
         .max(50, 'Soyad en fazla 50 karakter olabilir')
         .required('Soyad gerekli'),
@@ -45,7 +45,6 @@ export const CompanySchema = Yup.object().shape({
 export const SocialSchema = Yup.object().shape({
     links: Yup.array().of(
         Yup.object().shape({
-            type: Yup.string().required('Link türü gerekli'),
             url: Yup.string().url('Geçerli bir URL girin').required('URL gerekli'),
             title: Yup.string().required('Başlık gerekli'),
         })

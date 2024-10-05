@@ -37,7 +37,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
         setSubmitting(false);
       }}
     >
-      {({ values, handleChange, isSubmitting }) => (
+      {({ values, handleChange, handleBlur, errors, touched }) => (
         <Form className="space-y-4">
           <FormInput
             label="İsim"
@@ -48,8 +48,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
               handleChange(e);
               setContactInfo(prev => ({ ...prev, name: e.target.value }));
             }}
+            onBlur={handleBlur}
+            error={touched.name && errors.name ? errors.name : undefined}
           />
-
+          
           <FormInput
             label="Soyisim"
             name="surname"
@@ -59,6 +61,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
               handleChange(e);
               setContactInfo(prev => ({ ...prev, surname: e.target.value }));
             }}
+            onBlur={handleBlur}
+            error={touched.surname && errors.surname ? errors.surname : undefined}
           />
 
           <FormInput
@@ -71,6 +75,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
               handleChange(e);
               setContactInfo(prev => ({ ...prev, email: e.target.value }));
             }}
+            onBlur={handleBlur}
+            error={touched.email && errors.email ? errors.email : undefined}
+            
           />
           <FormInput
             label="Telefon Numarası"
@@ -82,6 +89,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactInfo, setContactInfo }
               handleChange(e);
               setContactInfo(prev => ({ ...prev, phone: e.target.value }));
             }}
+            onBlur={handleBlur}
+            error={touched.phone && errors.phone ? errors.phone : undefined}
           />
         <div className='lg:hidden flex max-w-sm mx-auto justify-between'>
           <ImageDropzone

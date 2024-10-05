@@ -43,7 +43,7 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ companyInfo, setCompanyInfo }
         setSubmitting(false);
       }}
     >
-      {({ values, handleChange, isSubmitting }) => (
+      {({ values, handleChange, handleBlur, errors, touched }) => (
         <Form className="space-y-4">
           <FormInput
             label="Şirket Adı"
@@ -54,6 +54,8 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ companyInfo, setCompanyInfo }
               handleChange(e);
               setCompanyInfo(prev => ({ ...prev, companyName: e.target.value }));
             }}
+            onBlur={handleBlur}
+            error={touched.companyName && errors.companyName ? errors.companyName : undefined}
           />
           <FormInput
             label="Şirket Adresi"
@@ -64,6 +66,8 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ companyInfo, setCompanyInfo }
               handleChange(e);
               setCompanyInfo(prev => ({ ...prev, companyAddress: e.target.value }));
             }}
+            onBlur={handleBlur}
+            error={touched.companyAddress && errors.companyAddress ? errors.companyAddress : undefined}
           />
           <FormInput
             label="Mail Adresi"
@@ -75,6 +79,8 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ companyInfo, setCompanyInfo }
               handleChange(e);
               setCompanyInfo(prev => ({ ...prev, email: e.target.value }));
             }}
+            onBlur={handleBlur}
+            error={touched.email && errors.email ? errors.email : undefined}
           />
           <FormInput
             label="Telefon Numarası"
@@ -86,6 +92,8 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ companyInfo, setCompanyInfo }
               handleChange(e);
               setCompanyInfo(prev => ({ ...prev, phone: e.target.value }));
             }}
+            onBlur={handleBlur}
+            error={touched.phone && errors.phone ? errors.phone : undefined}
           />
           {/* Toggle butonu */}
           <div className="flex items-center justify-between">
@@ -109,6 +117,8 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ companyInfo, setCompanyInfo }
                   handleChange(e);
                   setCompanyInfo(prev => ({ ...prev, iban: e.target.value }));
                 }}
+                onBlur={handleBlur}
+                error={touched.iban && errors.iban ? errors.iban : undefined}
               />
               <FormInput
                 label="Vergi Numarası"
@@ -119,6 +129,8 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ companyInfo, setCompanyInfo }
                   handleChange(e);
                   setCompanyInfo(prev => ({ ...prev, taxAdministrationNumber: e.target.value }));
                 }}
+                onBlur={handleBlur}
+                error={touched.taxAdministrationNumber && errors.taxAdministrationNumber ? errors.taxAdministrationNumber : undefined}
               />
               <FormInput
                 label="Vergi Dairesi"
@@ -129,6 +141,8 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ companyInfo, setCompanyInfo }
                   handleChange(e);
                   setCompanyInfo(prev => ({ ...prev, taxadministration: e.target.value }));
                 }}
+                onBlur={handleBlur}
+               error={touched.taxadministration && errors.taxadministration ? errors.taxadministration : undefined}
               />
             </>
           )}

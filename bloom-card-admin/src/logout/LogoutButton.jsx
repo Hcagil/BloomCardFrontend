@@ -1,4 +1,6 @@
 import { useKeycloak } from '@react-keycloak/web';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 const LogoutButton = () => {
   const { keycloak, initialized } = useKeycloak();
@@ -14,9 +16,13 @@ const LogoutButton = () => {
   return(
     <button 
       onClick={handleLogout}
-      className='ml-2 font-semibold'
+      className='font-semibold text-white items-center mt-2'
     >
-        Çıkış Yap
+      
+      <FontAwesomeIcon 
+        icon={faSignOut}
+        className='text-lg hover:text-gray-500'
+      />
     </button>    
     );
   

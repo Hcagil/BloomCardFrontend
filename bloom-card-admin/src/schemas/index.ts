@@ -1,1 +1,0 @@
-export { PersonalInfoSchema } from './validationSchemas';

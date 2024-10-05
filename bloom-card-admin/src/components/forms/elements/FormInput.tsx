@@ -1,6 +1,7 @@
 // src/components/forms/elements/FormInput.tsx
 import React from 'react';
 
+
 interface FormInputProps {
     label: string;
     name: string;
@@ -9,6 +10,7 @@ interface FormInputProps {
     onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
     placeholder?: string;
     type?: string;
+    error?: string;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -19,7 +21,9 @@ const FormInput: React.FC<FormInputProps> = ({
     onBlur,
     placeholder = '',
     type = 'text',
+    error,
 }) => {
+  
     return (
         <div className="mb-4">
             <label className="block text-white text-sm font-bold mb-2">
@@ -34,6 +38,7 @@ const FormInput: React.FC<FormInputProps> = ({
                 placeholder={placeholder}
                 className="bg-transparent shadow appearance-none border border-gray-700 rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline hover:border-gray-600 placeholder-gray-600"
             />
+            {error && <small className="text-xs block mt-2 text-red-300">{error}</small>}
         </div>
     );
 };
