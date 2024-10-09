@@ -34,8 +34,8 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ profileImage, userInitial }
   // Modal dışında bir yere tıklandığında kapatma
   const handleClickOutside = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-      setIsEditing(false); // Modalı kapat
-      setIsCropping(false); // Kırpma işlemini iptal et
+      setIsEditing(false); 
+      setIsCropping(false);
     }
   };
 

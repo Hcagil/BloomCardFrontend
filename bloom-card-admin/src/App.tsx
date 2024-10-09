@@ -6,7 +6,6 @@ import SettingsPage from './pages/Dashboard/SettingsPage';
 import Layout from './components/layout/Layout';
 import { UserProvider } from './contexts/UserContext';
 import SecureRoute from './auth/SecureRoute'; 
-import Login from './pages/Login';
 import ProfilePage from './pages/ReadPages/ProfilePage';
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
                 <Routes>
                     {/* ProfilePage ve Login Layout kullanmadan */}
                     <Route path="/profile" element={<ProfilePage />} />
-                    <Route path="/login" element={<Login />} />
 
                     {/* Layout içeren rotalar */}
                     <Route element={<Layout />}>

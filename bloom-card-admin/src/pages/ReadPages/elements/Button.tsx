@@ -40,10 +40,11 @@ const Button: React.FC<ButtonProps> = ({ coverImage, profileImage, name, surname
     newLink.href = url;
     newLink.click();
   };
-
+  {/*
   const handleSendInfo = () => {
     console.log('Bilgilerini gönderme fonksiyonu çağrıldı.');
   };
+  */}
 
   return (
     <div className="w-full relative">
@@ -56,7 +57,7 @@ const Button: React.FC<ButtonProps> = ({ coverImage, profileImage, name, surname
         >
           Rehbere Kaydet
         </button>
-
+      {/** 
         <button
           onClick={handleSendInfo}
           className="h-12 rounded bg-green text-darkgrey px-6 flex items-center justify-center shadow-lg hover:bg-darkgreen transition"
@@ -64,6 +65,7 @@ const Button: React.FC<ButtonProps> = ({ coverImage, profileImage, name, surname
         >
           Bilgilerini Gönder
         </button>
+        */}
       </div>
 
 
@@ -96,7 +98,7 @@ const Button: React.FC<ButtonProps> = ({ coverImage, profileImage, name, surname
       )}
     </div>
 
-      {/* Mobil için Send Info Button (Altında Görünmeli) */}
+      {/* Mobil için Send Info Button (Altında Görünmeli) 
       <div className="md:hidden mt-4 text-center">
         <button
           onClick={handleSendInfo}
@@ -106,6 +108,7 @@ const Button: React.FC<ButtonProps> = ({ coverImage, profileImage, name, surname
           Bilgilerini Gönder
         </button>
       </div>
+      */}
     </div>
   );
 };
